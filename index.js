@@ -5,7 +5,7 @@ function Book(name) {
 }
 const table = document.getElementById("table")
 const input = document.getElementById("inputOfUser")
-function showBooks(books) {
+function showBooks() {
     for (let item of myLibrary) {
         item = document.createElement("div")
         item.textContent = input.value
