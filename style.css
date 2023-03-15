@@ -1,7 +1,29 @@
+#container {
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 1fr 4fr 1fr;
+}
+header {
+  grid-area: 1/1/2/-1;
+  background-color: antiquewhite;
+}
+#sidebar {
+  grid-area: 1/1/-1/2;
+  background-color: aqua;
+}
+main {
+  grid-area: 2/2/-1/-1;
+  background-color: brown;
+  display: grid;
+}
+footer {
+  grid-area: -2/1/-1/-1;
+  background-color: lightcoral;
+}
 #table {
   border: 1px solid black;
-  width: 400px;
-  height: 400px;
   background-color: lightgreen;
   display: grid;
   grid-auto-flow: column;
