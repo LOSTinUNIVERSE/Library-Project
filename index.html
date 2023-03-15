@@ -10,11 +10,30 @@
   </head>
   <body>
     <div id="container">
-      <div id="sidebar"></div>
+      <div id="sidebar">
+        <div class="form-popup" id="myForm">
+          <form action="">
+            <div id="inputContainer">
+              <input type="text" placeholder="type " />
+            </div>
+            <div id="inputContainer">
+              <input type="text" placeholder="type " />
+            </div>
+            <div id="inputContainer">
+              <input type="text" placeholder="type " />
+            </div>
+            <div id="inputContainer">
+              <input type="text" placeholder="type " />
+            </div>
+          </form>
+        </div>
+      </div>
       <header>
         <input type="text" placeholder="store your book !" id="inputOfUser" />
         <button id="toAdd">add book</button>
         <button id="showBooks">show library</button>
+        <button class="open-button" onclick="openForm()">Open Form</button>
+        <button class="open-button" onclick="closeForm()">close Form</button>
       </header>
       <main>
         <div id="table">

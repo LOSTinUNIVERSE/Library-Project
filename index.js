@@ -15,18 +15,17 @@ function showBooks() {
 
     }
 }
-// function createCard() {
-//     const book = document.createElement("div")
-//     book.textContent = input.value
-//     table.appendChild(book)
-//     book.setAttribute("class", "books")
-// }
 function addBookToLibrary() {
     myLibrary.push(input.value)
-    // console.log(myLibrary);
-    // createCard()
 }
 const showBtn = document.querySelector("#showBooks")
 showBtn.addEventListener("click", showBooks)
 const btn = document.getElementById("toAdd")
 btn.addEventListener("click", addBookToLibrary)
+
+function openForm() {
+    document.getElementById("myForm").style.display = "block"
+}
+function closeForm() {
+    document.getElementById("myForm").style.display = "none"
+}
