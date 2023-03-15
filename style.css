@@ -13,33 +13,29 @@ header {
   grid-area: 2/1/-2/2;
   background-color: aqua;
   display: grid;
-  grid-template-rows: 4fr 2fr;
 }
 form {
   background-color: lightslategrey;
   display: grid;
   grid-template-rows: repeat(4, 1fr);
   gap: 10px;
+  align-items: center;
 }
-/* form > div > input {
-  width: 300px;
-  height: 20px;
-} */
 form > div {
   background-color: blue;
   border-radius: 10px;
   /* display: ; */
   border: 2px solid white;
 }
-.form-container {
-  max-width: 300px;
-  padding: 10px;
-  background-color: white;
+#myForm {
+  display: grid;
+  grid-template-rows: 4fr 1fr;
 }
-.form-popup {
-  display: none;
-  position: fixed;
+#myForm > button {
+  width: 50%;
+  height: 50%;
 }
+
 main {
   grid-area: 2/2/-1/-1;
   background-color: brown;

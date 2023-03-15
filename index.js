@@ -23,6 +23,12 @@ showBtn.addEventListener("click", showBooks)
 const btn = document.getElementById("toAdd")
 btn.addEventListener("click", addBookToLibrary)
 
+// function openForm() {
+//     document.getElementById("myForm").style.display = "block"
+// }
+// function closeForm() {
+//     document.getElementById("myForm").style.display = "none"
+// }
 function openForm() {
     document.getElementById("myForm").style.display = "block"
 }
