@@ -1,10 +1,33 @@
 /* eslint-disable no-restricted-syntax */
 const myLibrary = []
-function Book(name) {
-    this.name = name
+function Book(author, title, pages) {
+    this.author = author
+    this.title = title
+    this.pages = pages
 }
+
 const table = document.getElementById("table")
 const input = document.getElementById("inputOfUser")
+const author = document.getElementById("authorInput")
+const title = document.getElementById("titleInput")
+const pages = document.getElementById("titleInput")
+const read = document.getElementById("read")
+const notRead = document.getElementById("notread")
+function checkRead() {
+    if (read.checked) {
+        read.value = "read"
+    }
+    else if (notRead.checked) {
+        notRead.value = "notread"
+    }
+}
+function creatorOfBooks(event) {
+    const newBook = new Book(author.value, title.value, pages.value)
+    myLibrary.push(newBook)
+    event.preventDefault()
+    console.log(read.checked);
+}
+
 function showBooks(event) {
     for (let item of myLibrary) {
         item = document.createElement("div")
@@ -33,4 +56,5 @@ function closeForm() {
 
 }
 const showForm = document.querySelector("#showForm")
-showForm.addEventListener("click", showBooks, false)
+showForm.addEventListener("click", creatorOfBooks, false)
+
