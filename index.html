@@ -15,33 +15,44 @@
           <form action="" id="booksForm">
             <div id="inputContainer">
               <label for="author">author</label>
-              <input type="text" placeholder="type" id="authorInput" />
+              <input type="text" placeholder="type" id="authorInput" required />
             </div>
             <div id="inputContainer">
               <label for="title"> Title of the book</label>
-              <input type="text" placeholder="type " id="titleInput" />
+              <input
+                type="text"
+                placeholder="type "
+                id="titleInput"
+                required="required"
+              />
             </div>
             <div id="inputContainer">
               <label for="pages">number of pages</label>
-              <input type="text" placeholder="type " id="pagesInput" />
+              <input type="text" placeholder="type " id="pagesInput" required />
             </div>
             <div id="inputContainer" ="">
               <div id="readContainer">
                 <label for="read">read this book</label>
-                <input type="radio" name="read" id="read" value="read" />
+                <input
+                  type="radio"
+                  name="read"
+                  id="read"
+                  value="read"
+                  aria-required="required"
+                />
               </div>
               <div id="readContainer">
                 <label for="notread">not read this book</label>
                 <input type="radio" name="read" id="notread" value="notread" />
               </div>
             </div>
+            <button id="submitForm">submit</button>
           </form>
-          <button form="booksForm" id="showForm">submit</button>
         </div>
       </div>
       <header>
         <input type="text" placeholder="store your book !" id="inputOfUser" />
-        <button id="toAdd">add book</button>
+        <button id="delete">delete</button>
         <!-- <button id="showBooks">show library</button> -->
         <button class="open-button" onclick="openForm()">Open Form</button>
         <button class="open-button" onclick="closeForm()">close Form</button>
