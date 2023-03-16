@@ -23,6 +23,26 @@ function checkRead() {
         readOrNot = "notread"
     }
 }
+
+const submitForm = document.querySelector("#showForm")
+submitForm.addEventListener("click", creatorOfBooks, false)
+
+function showBooks() {
+    const item = document.createElement("div")
+    item.setAttribute("class", "books")
+    item.setAttribute("data-number", myLibrary.length)
+    const bookTitle = document.createElement("h3")
+    const bookAuthor = document.createElement("p")
+    const bookPages = document.createElement("p")
+    const deleteBook = document.createElement("button")
+    deleteBook.innerText = "delete book"
+    table.appendChild(item)
+    item.appendChild(bookTitle)
+    item.appendChild(bookAuthor)
+    item.appendChild(bookPages)
+    item.appendChild(deleteBook)
+    console.log(myLibrary);
+}
 function creatorOfBooks(event) {
     checkRead()
     const newBook = new Book(author.value, title.value,
@@ -31,44 +51,22 @@ function creatorOfBooks(event) {
     event.preventDefault()
     console.log(newBook);
     console.log(myLibrary);
-}
-const submitForm = document.querySelector("#showForm")
-submitForm.addEventListener("click", creatorOfBooks, false)
-
-function showBooks(event) {
-    for (let item of myLibrary) {
-        item = document.createElement("div")
-        item.setAttribute("class", "books")
-        const bookTitle = document.createElement("h3")
-        const bookAuthor = document.createElement("p")
-        const bookPages = document.createElement("p")
-        const deleteBook = document.createElement("button")
-        deleteBook.innerText = "delete book"
-        table.appendChild(item)
-        item.appendChild(bookTitle)
-        item.appendChild(bookAuthor)
-        item.appendChild(bookPages)
-        item.appendChild(deleteBook)
-        console.log(item);
-
-    }
-    event.preventDefault()
+    showBooks()
 }
 function addBookToLibrary() {
     myLibrary.push(input.value)
 }
-const showBtn = document.querySelector("#showBooks")
-showBtn.addEventListener("click", showBooks)
+// const showBtn = document.querySelector("#showBooks")
+// showBtn.addEventListener("click", showBooks)
 // const addBook = document.getElementById("toAdd")
 // addBook.addEventListener("click", addBookToLibrary)
 
 
-// function openForm() {
-    // document.getElementById("myForm").style.display = "block"
-// }
-// function closeForm() {
-    // document.getElementById("myForm").style.display = "none"
-// 
-// }
-// 
+function openForm() {
+    document.getElementById("myForm").style.display = "!none"
+}
+function closeForm() {
+    document.getElementById("myForm").style.display = "none"
+}
+//
 // 
