@@ -5,7 +5,7 @@ function Book(name) {
 }
 const table = document.getElementById("table")
 const input = document.getElementById("inputOfUser")
-function showBooks() {
+function showBooks(event) {
     for (let item of myLibrary) {
         item = document.createElement("div")
         item.textContent = input.value
@@ -14,24 +14,23 @@ function showBooks() {
         console.log(item);
 
     }
+    event.preventDefault()
 }
 function addBookToLibrary() {
     myLibrary.push(input.value)
 }
 const showBtn = document.querySelector("#showBooks")
 showBtn.addEventListener("click", showBooks)
-const btn = document.getElementById("toAdd")
-btn.addEventListener("click", addBookToLibrary)
+const addBook = document.getElementById("toAdd")
+addBook.addEventListener("click", addBookToLibrary)
 
-// function openForm() {
-//     document.getElementById("myForm").style.display = "block"
-// }
-// function closeForm() {
-//     document.getElementById("myForm").style.display = "none"
-// }
+
 function openForm() {
     document.getElementById("myForm").style.display = "block"
 }
 function closeForm() {
     document.getElementById("myForm").style.display = "none"
+
 }
+const showForm = document.querySelector("#showForm")
+showForm.addEventListener("click", showBooks, false)

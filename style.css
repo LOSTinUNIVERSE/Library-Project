@@ -17,13 +17,17 @@ header {
 form {
   background-color: lightslategrey;
   display: grid;
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-rows: 1fr 1fr 1fr 1fr;
   gap: 10px;
-  align-items: center;
+  /* align-items: center; */
 }
 form > div {
-  background-color: blue;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  background-color: rgb(231, 231, 237);
   border-radius: 10px;
+  /* justify-content: center; */
+  /* justify-self: stretch; */
   /* display: ; */
   border: 2px solid white;
 }
