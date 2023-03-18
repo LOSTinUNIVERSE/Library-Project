@@ -11,14 +11,12 @@ function Book(author, title, pages, memory) {
 const switcher = function () {
     if (this.value == 1) {
         this.value = 2
-        this.style.color = "red"
         this.textContent = "not read"
         const smth = this.dataset.number
         myLibrary[smth].memory = "not read";
     }
     else if (this.value == 2) {
         this.value = 1
-        this.style.backgroundColor = "green"
         this.textContent = "read"
         const smth = this.dataset.number
         myLibrary[smth].memory = "read";
@@ -57,13 +55,18 @@ function removeBook2() {
     // console.log(this.dataset.number);
     // delete myLibrary[this.dataset.number]
     const numberOfButton = this.dataset.number
+    const filtered = myLibrary.filter(element => element.id != numberOfButton)
+    myLibrary = filtered
     const item = document.querySelector(`.books[data-number='${numberOfButton}']`)
     item.remove()
     filtration()
+    console.log(filtered);
+    // console.log(filtered.indexOf());
+    console.log(myLibrary);
+    // const filtered = myLibrary.filter(element => element.id !== 1)
+    // console.log(myLibrary);
 }
-// function switcher2() {
-//     Book.prototype.switcher()
-// }
+
 function showBooks(event) {
     const item = document.createElement("div")
     item.setAttribute("class", "books")
@@ -76,7 +79,7 @@ function showBooks(event) {
     const bookAuthor = document.createElement("p")
     bookAuthor.textContent = author.value
     const bookPages = document.createElement("p")
-    bookPages.textContent = pages.value
+    // bookPages.textContent = pages.value
     bookPages.textContent = number
     const deleteBook = document.createElement("button")
     deleteBook.innerText = "delete book"
@@ -95,7 +98,7 @@ function showBooks(event) {
     item.appendChild(bookPages)
     item.appendChild(deleteBook)
     item.appendChild(readButton)
-    console.log(myLibrary);
+    // console.log(myLibrary);
 }
 function creatorOfBooks(event) {
     checkRead()
