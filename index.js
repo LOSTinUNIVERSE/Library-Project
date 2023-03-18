@@ -8,6 +8,22 @@ function Book(author, title, pages, memory) {
     this.id = myLibrary.length
 }
 
+const switcher = function () {
+    if (this.value == 1) {
+        this.value = 2
+        this.style.color = "red"
+        this.textContent = "not read"
+        const smth = this.dataset.number
+        myLibrary[smth].memory = "not read";
+    }
+    else if (this.value == 2) {
+        this.value = 1
+        this.style.backgroundColor = "green"
+        this.textContent = "read"
+        const smth = this.dataset.number
+        myLibrary[smth].memory = "read";
+    }
+}
 
 const table = document.getElementById("table")
 const input = document.getElementById("inputOfUser")
@@ -42,11 +58,12 @@ function removeBook2() {
     // delete myLibrary[this.dataset.number]
     const numberOfButton = this.dataset.number
     const item = document.querySelector(`.books[data-number='${numberOfButton}']`)
-    const itemToDelete = myLibrary.filter(element => element.id !== 1)
-    console.log(itemToDelete);
     item.remove()
     filtration()
 }
+// function switcher2() {
+//     Book.prototype.switcher()
+// }
 function showBooks(event) {
     const item = document.createElement("div")
     item.setAttribute("class", "books")
@@ -65,12 +82,20 @@ function showBooks(event) {
     deleteBook.innerText = "delete book"
     deleteBook.setAttribute("data-number", number)
 
+    const readButton = document.createElement("button")
+    readButton.addEventListener("click", switcher)
+    readButton.value = 1
+    readButton.textContent = "read or no"
+    readButton.setAttribute("data-number", number)
+
     deleteBook.addEventListener("click", removeBook2)
     table.appendChild(item)
     item.appendChild(bookTitle)
     item.appendChild(bookAuthor)
     item.appendChild(bookPages)
     item.appendChild(deleteBook)
+    item.appendChild(readButton)
+    console.log(myLibrary);
 }
 function creatorOfBooks(event) {
     checkRead()
@@ -90,3 +115,18 @@ function openForm() {
 function closeForm() {
     document.getElementById("myForm").style.display = "none"
 }
+// let active = false
+// function toggle() {
+//     // eslint-disable-next-line prefer-const
+//     let toggle = document.querySelector(".toggle")
+//     // eslint-disable-next-line prefer-const
+//     let text = document.querySelector("text")
+//     active = !active
+//     if (active) {
+//         toggle.classList.add("active")
+//     }
+//     else {
+//         toggle.classList.remove("active")
+//         text.innerText = "FF"
+//     }
+// }
