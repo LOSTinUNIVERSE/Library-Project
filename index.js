@@ -1,11 +1,13 @@
 /* eslint-disable no-restricted-syntax */
-const myLibrary = []
+let myLibrary = []
 function Book(author, title, pages, memory) {
     this.author = author
     this.title = title
     this.pages = pages
     this.memory = memory
+    this.id = myLibrary.length
 }
+
 
 const table = document.getElementById("table")
 const input = document.getElementById("inputOfUser")
@@ -23,50 +25,53 @@ function checkRead() {
         readOrNot = "notread"
     }
 }
-const books = document.getElementsByClassName("books")
-function removeBook() {
-    let number = Number(this.value)
-    number -= 1
-    delete myLibrary[number]
-    myLibrary.length -= 1
-    books[number].remove()
-    console.log(myLibrary.length);
-    // console.log(books[1]);
-    // console.log(typeof myLibrary);
-}
-function ChangeLength() {
-    if (myLibrary.length == 0) {
-        myLibrary.length += 1
-    } else {
-        myLibrary.length -= 1
-    }
+function filtration() {
+    myLibrary = myLibrary.filter(item => {
+        if (Object.keys(item).length !== 0) {
+            return true
+        }
+        return true
+    })
 }
 
-function showBooks() {
+
+
+function removeBook2() {
+    // document.getElementsByClassName(".books")
+    // console.log(this.dataset.number);
+    // delete myLibrary[this.dataset.number]
+    const numberOfButton = this.dataset.number
+    const item = document.querySelector(`.books[data-number='${numberOfButton}']`)
+    const itemToDelete = myLibrary.filter(element => element.id !== 1)
+    console.log(itemToDelete);
+    item.remove()
+    filtration()
+}
+function showBooks(event) {
     const item = document.createElement("div")
     item.setAttribute("class", "books")
-    item.setAttribute("datax-number", myLibrary.length)
+    let number = myLibrary.length
+    number -= 1
+    item.setAttribute("data-number", number)
+    // console.log(`data set number is ${item.dataset.number}`);
     const bookTitle = document.createElement("h3")
+    bookTitle.textContent = title.value
     const bookAuthor = document.createElement("p")
+    bookAuthor.textContent = author.value
     const bookPages = document.createElement("p")
+    bookPages.textContent = pages.value
+    bookPages.textContent = number
     const deleteBook = document.createElement("button")
     deleteBook.innerText = "delete book"
-    deleteBook.setAttribute("data-number", myLibrary.length)
-    deleteBook.value = myLibrary.length
-    console.log("library length is ", `${myLibrary.length}`);
-    deleteBook.addEventListener("click", removeBook)
+    deleteBook.setAttribute("data-number", number)
+
+    deleteBook.addEventListener("click", removeBook2)
     table.appendChild(item)
     item.appendChild(bookTitle)
     item.appendChild(bookAuthor)
     item.appendChild(bookPages)
     item.appendChild(deleteBook)
-    // console.log(myLibrary[0]);
 }
-// function empty() {
-//     if (author.value == "" || title.value == "" || pages.value == "") {
-//         return alert("did not enter")
-//     }
-// }
 function creatorOfBooks(event) {
     checkRead()
     const newBook = new Book(author.value, title.value,
@@ -75,9 +80,7 @@ function creatorOfBooks(event) {
     showBooks()
     event.preventDefault()
 }
-function cleanTable() {
 
-}
 const submitForm = document.querySelector("#submitForm")
 submitForm.addEventListener("click", creatorOfBooks, false)
 
