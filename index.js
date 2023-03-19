@@ -27,7 +27,7 @@ const table = document.getElementById("table")
 const input = document.getElementById("inputOfUser")
 const author = document.getElementById("authorInput")
 const title = document.getElementById("titleInput")
-const pages = document.getElementById("titleInput")
+const pages = document.getElementById("pagesInput")
 const read = document.getElementById("read")
 const notRead = document.getElementById("notread")
 let readOrNot = ""
@@ -79,8 +79,7 @@ function showBooks(event) {
     const bookAuthor = document.createElement("p")
     bookAuthor.textContent = author.value
     const bookPages = document.createElement("p")
-    // bookPages.textContent = pages.value
-    bookPages.textContent = number
+    bookPages.textContent = pages.value
     const deleteBook = document.createElement("button")
     deleteBook.innerText = "delete book"
     deleteBook.setAttribute("data-number", number)
@@ -100,13 +99,27 @@ function showBooks(event) {
     item.appendChild(readButton)
     // console.log(myLibrary);
 }
+const checkerOfInput = function () {
+    if (author.value == "" || pages.value == "" || title.value == "") {
+        return false
+    }
+    // return result
+}
 function creatorOfBooks(event) {
+    // checkerOfInput()
+    if (checkerOfInput() == false) {
+        return alert("fill out the fields please")
+    }
     checkRead()
     const newBook = new Book(author.value, title.value,
         pages.value, readOrNot)
     myLibrary.push(newBook)
     showBooks()
     event.preventDefault()
+    const inputs = document.getElementsByClassName("inputs")
+    for (const item of inputs) {
+        item.value = ""
+    }
 }
 
 const submitForm = document.querySelector("#submitForm")

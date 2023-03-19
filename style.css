@@ -2,8 +2,8 @@
   display: grid;
   width: 100vw;
   height: 100vh;
-  grid-template-columns: 1.5fr 4fr;
-  grid-template-rows: 1fr 4fr 1fr;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 1fr 4fr 0.7fr;
 }
 header {
   grid-area: 1/1/2/-1;
@@ -78,8 +78,6 @@ footer {
   grid-template-rows: repeat(auto-fill, minmax(200px, 1fr));
   gap: 10px;
   grid-auto-flow: row;
-  /* justify-content: end; */
-  /* justify-items: end; */
   align-items: center;
 }
 .books {
@@ -91,6 +89,8 @@ footer {
   align-self: baseline;
   gap: 1px;
   border: 1px solid black;
+  justify-content: center;
+  justify-items: center;
 }
 .books > button:nth-last-child(1) {
   background-color: lightslategray;
