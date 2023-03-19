@@ -75,22 +75,29 @@ footer {
   /* height: max-content; */
   grid-auto-flow: column;
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-  grid-template-rows: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(100px, 150fr));
   gap: 10px;
   grid-auto-flow: row;
   align-items: center;
 }
 .books {
   display: grid;
-  grid-template-rows: repeat(4, 1fr);
+  /* grid-template-rows: repeat(4, 1fr); */
   background-color: grey;
+  height: 200px;
   margin: 10px 5px 10px 5px;
   /* justify-self: end; */
   align-self: baseline;
   gap: 1px;
   border: 1px solid black;
-  justify-content: center;
-  justify-items: center;
+  /* justify-content: center; */
+  /* justify-items: center; */
+}
+.books > p,
+h3 {
+  display: grid;
+  justify-self: center;
+  margin: 2px;
 }
 .books > button:nth-last-child(1) {
   background-color: lightslategray;

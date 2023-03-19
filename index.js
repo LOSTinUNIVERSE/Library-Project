@@ -66,7 +66,44 @@ function removeBook2() {
     // const filtered = myLibrary.filter(element => element.id !== 1)
     // console.log(myLibrary);
 }
+function starter(event) {
+    const item = document.createElement("div")
+    item.setAttribute("class", "books")
+    let number = myLibrary.length
+    number -= 1
+    item.setAttribute("data-number", number)
+    // console.log(`data set number is ${item.dataset.number}`);
+    const bookTitle = document.createElement("h3")
+    bookTitle.textContent = "The Great Gatsby"
+    const bookAuthor = document.createElement("p")
+    bookAuthor.textContent = "F. Scott Fitzgerald"
+    const bookPages = document.createElement("p")
+    bookPages.textContent = "180 pages"
+    const deleteBook = document.createElement("button")
+    deleteBook.innerText = "delete "
+    deleteBook.setAttribute("data-number", number)
 
+    const readButton = document.createElement("button")
+    readButton.addEventListener("click", switcher)
+    readButton.value = 1
+    readButton.textContent = "read or no"
+    readButton.setAttribute("data-number", number)
+
+    deleteBook.addEventListener("click", removeBook2)
+    table.appendChild(item)
+    item.appendChild(bookTitle)
+    item.appendChild(bookAuthor)
+    item.appendChild(bookPages)
+    item.appendChild(deleteBook)
+    item.appendChild(readButton)
+    // console.log(myLibrary);
+}
+let i = 0
+do {
+    starter()
+    i += 1
+    console.log(starter);
+} while (i <= 5)
 function showBooks(event) {
     const item = document.createElement("div")
     item.setAttribute("class", "books")
@@ -81,7 +118,7 @@ function showBooks(event) {
     const bookPages = document.createElement("p")
     bookPages.textContent = pages.value
     const deleteBook = document.createElement("button")
-    deleteBook.innerText = "delete book"
+    deleteBook.innerText = "delete "
     deleteBook.setAttribute("data-number", number)
 
     const readButton = document.createElement("button")
