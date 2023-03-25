@@ -1,11 +1,12 @@
 /* eslint-disable no-restricted-syntax */
 let myLibrary = []
-function Book(author, title, pages, memory) {
-    this.author = author
-    this.title = title
-    this.pages = pages
-    this.memory = memory
-    this.id = myLibrary.length
+class Book {
+    constructor(author, title, pages, memory) {
+        this.author = author
+        this.title = title
+        this.pages = pages
+        this.memory = memory
+    }
 }
 
 const switcher = function () {
@@ -51,9 +52,6 @@ function filtration() {
 
 
 function removeBook2() {
-    // document.getElementsByClassName(".books")
-    // console.log(this.dataset.number);
-    // delete myLibrary[this.dataset.number]
     const numberOfButton = this.dataset.number
     const filtered = myLibrary.filter(element => element.id != numberOfButton)
     myLibrary = filtered
@@ -61,10 +59,7 @@ function removeBook2() {
     item.remove()
     filtration()
     console.log(filtered);
-    // console.log(filtered.indexOf());
     console.log(myLibrary);
-    // const filtered = myLibrary.filter(element => element.id !== 1)
-    // console.log(myLibrary);
 }
 function starter(event) {
     const item = document.createElement("div")
@@ -72,7 +67,6 @@ function starter(event) {
     let number = myLibrary.length
     number -= 1
     item.setAttribute("data-number", number)
-    // console.log(`data set number is ${item.dataset.number}`);
     const bookTitle = document.createElement("h3")
     bookTitle.textContent = "The Great Gatsby"
     const bookAuthor = document.createElement("p")
@@ -96,13 +90,11 @@ function starter(event) {
     item.appendChild(bookPages)
     item.appendChild(deleteBook)
     item.appendChild(readButton)
-    // console.log(myLibrary);
 }
 let i = 0
 do {
     starter()
     i += 1
-    console.log(starter);
 } while (i <= 5)
 function showBooks(event) {
     const item = document.createElement("div")
@@ -110,7 +102,6 @@ function showBooks(event) {
     let number = myLibrary.length
     number -= 1
     item.setAttribute("data-number", number)
-    // console.log(`data set number is ${item.dataset.number}`);
     const bookTitle = document.createElement("h3")
     bookTitle.textContent = title.value
     const bookAuthor = document.createElement("p")
@@ -140,10 +131,8 @@ const checkerOfInput = function () {
     if (author.value == "" || pages.value == "" || title.value == "") {
         return false
     }
-    // return result
 }
 function creatorOfBooks(event) {
-    // checkerOfInput()
     if (checkerOfInput() == false) {
         return alert("fill out the fields please")
     }
@@ -168,18 +157,3 @@ function openForm() {
 function closeForm() {
     document.getElementById("myForm").style.display = "none"
 }
-// let active = false
-// function toggle() {
-//     // eslint-disable-next-line prefer-const
-//     let toggle = document.querySelector(".toggle")
-//     // eslint-disable-next-line prefer-const
-//     let text = document.querySelector("text")
-//     active = !active
-//     if (active) {
-//         toggle.classList.add("active")
-//     }
-//     else {
-//         toggle.classList.remove("active")
-//         text.innerText = "FF"
-//     }
-// }
